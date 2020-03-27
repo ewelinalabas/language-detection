@@ -1,24 +1,57 @@
 import React, { useState } from 'react';
 import { Box } from '@material-ui/core';
 import { Form } from './Form';
-import { Result } from './Result';
-import { detectTextLanguage } from './APIcall';
+import { DetectedLanguagesBoard } from './DetectedLanguagesBoard';
+import { ErrorMessage } from './ErrorMessage';
+import { detectTextLanguage, openSource } from './thirdPartyCalls';
 
 export const LanguageDetector = () => {
-  const [detectedLanguages, setdetectedLanguages] = useState([])
-  const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
+  const [detectedLanguages, setdetectedLanguages] = useState(null);
+  const [error, setError] = useState(null);
+
+  const hardcodedResult = [
+    {
+    "language_code": "nl",
+    "language_name": "Dutch",
+    "probability": 11.447804611689142,
+    "percentage": 100,
+    "reliable_result": true
+    },
+    {
+    "language_code": "no",
+    "language_name": "Norwegian",
+    "probability": 10.386409572240652,
+    "percentage": 90.72839661881791,
+    "reliable_result": false
+    }
+  ]
+
   const submitForm = (text) => {
+    setIsLoading(true);
+
     detectTextLanguage(text)
     .then(
-      data => {setdetectedLanguages(data.results)},
+      data => {
+        setdetectedLanguages(data.results)
+      },
       error => {setError(error)}
-    )
+    );
+
+    // setdetectedLanguages(hardcodedResult)
+    setIsLoading(false)
+  }
+
+  const handleSearch = (languageName, source) => {
+      openSource(languageName, source)
   }
 
   return (
     <Box>
       <Form submitForm={submitForm}/>
-      <Result />
+      {isLoading && <p>Loading</p>}
+      {error && <ErrorMessage />}
+      {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}
     </Box>
   );
 }
