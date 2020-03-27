@@ -33,11 +33,14 @@ export const LanguageDetector = () => {
     detectTextLanguage(text)
     .then(
       data => {
-        setdetectedLanguages(data.results)
+        data.success ? 
+        setdetectedLanguages(data.results) :
+        setError(data.error)
       },
-      error => {setError(error)}
+      error => {
+        setError(error)
+      }
     );
-
     // setdetectedLanguages(hardcodedResult)
     setIsLoading(false)
   }
@@ -50,7 +53,7 @@ export const LanguageDetector = () => {
     <Box>
       <Form submitForm={submitForm}/>
       {isLoading && <p>Loading</p>}
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage error={error} />}
       {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}
     </Box>
   );

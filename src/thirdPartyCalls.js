@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { WIKIPEDIA, GOOGLE } from './constants';
+import { THIRD_PARTY } from './constants';
+import { API_ACCESS_KEY } from './APIkey';
 
-const API_ACCESS_KEY = 'c63d49f3856e9c506332aa131495ed76';
 
 export const detectTextLanguage = async (text) => {
   const response = await axios
@@ -11,9 +11,9 @@ export const detectTextLanguage = async (text) => {
 
 export const openSource = (searchTerm, source) => {
   let URL
-  if(source === WIKIPEDIA) {
+  if(source === THIRD_PARTY.wikipedia) {
     URL = 'https://en.wikipedia.org/wiki/' + searchTerm + '_language'
-  } else if(source === GOOGLE) {
+  } else if(source === THIRD_PARTY.google) {
     URL = 'https://www.google.com/search?q=' + searchTerm + '+language'
   }
   window.open(URL, "_blank")
