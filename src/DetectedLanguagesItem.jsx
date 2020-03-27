@@ -21,10 +21,10 @@ export const DetectedLanguagesItem = ({ code, name, percentageMatch, handleSearc
         secondary={"Match: " + Math.round(percentageMatch) + "%"}
       />
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label={WIKIPEDIA} onClick={(event) => handleClick(event, THIRD_PARTY.wikipedia)}>
+        <IconButton edge="end" aria-label={THIRD_PARTY.wikipedia} onClick={(event) => handleClick(event, THIRD_PARTY.wikipedia)}>
           <SearchRounded />
         </IconButton>
-        <IconButton edge="end" aria-label={GOOGLE} onClick={(event) => handleClick(event, THIRD_PARTY.google)}>
+        <IconButton edge="end" aria-label={THIRD_PARTY.google} onClick={(event) => handleClick(event, THIRD_PARTY.google)}>
           <SchoolRounded />
         </IconButton>
       </ListItemSecondaryAction>
