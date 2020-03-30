@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { LanguageDetector } from './LanguageDetector';
+import { ApplicationBar } from './ApplicationBar';
+import { Footer } from './Footer';
 import './App.css';
 
 export const App = () => {
@@ -11,7 +13,9 @@ export const App = () => {
       justify="space-between"
       alignItems="center"
     >
+      <ApplicationBar />
       <LanguageDetector />
+      <Footer />
     </Grid>
   );
 }
