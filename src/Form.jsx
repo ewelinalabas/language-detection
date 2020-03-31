@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, ButtonGroup, Button } from '@material-ui/core';
 import { RotateLeftRounded, SendRounded } from '@material-ui/icons';
+import { StyledForm } from './styledComponents/StyledForm';
+import { StyledTextField } from './styledComponents/StyledTextField';
 
 export const Form = ({ submitForm }) => {
   const LABEL_TEXT = "Type your text here...";
@@ -22,9 +24,10 @@ export const Form = ({ submitForm }) => {
   }
 
   return (
-    <form>
-      <TextField
+    <StyledForm>
+      <StyledTextField
         required
+        multiline
         type="text"
         id="outlined-basic" 
         label={LABEL_TEXT}
@@ -32,25 +35,27 @@ export const Form = ({ submitForm }) => {
         variant="outlined"
         onChange={handleChange}
       />
-      <Button
-        variant="contained"
-        color="secondary"
-        // className={classes.button}
-        startIcon={<RotateLeftRounded />}
-        onClick={handleReset}
-      >
-        Reset text
-      </Button>
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        // className={classes.button}
-        endIcon={<SendRounded />}
-        onClick={handleClick}
-      >
-        Detect language
-      </Button>
-    </form>
+      <ButtonGroup>
+        <Button
+          variant="contained"
+          color="secondary"
+          // className={classes.button}
+          startIcon={<RotateLeftRounded />}
+          onClick={handleReset}
+        >
+          Reset text
+        </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          // className={classes.button}
+          endIcon={<SendRounded />}
+          onClick={handleClick}
+        >
+          Detect language
+        </Button>
+      </ButtonGroup>
+    </StyledForm>
   );
 }

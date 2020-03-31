@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.full {
+  width: 100%;
+}
+
 .splitted-left {
   width: 40%;
   left: 0;

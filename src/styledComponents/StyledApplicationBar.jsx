@@ -1,4 +1,4 @@
-import { styled } from '@material-ui/core/styles';
+import styled from 'styled-components';
 import { AppBar } from '@material-ui/core';
 
 export const StyledApplicationBar = styled(AppBar)({
