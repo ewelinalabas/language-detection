@@ -6,9 +6,12 @@ import { ErrorMessage } from './ErrorMessage';
 import { detectTextLanguage, openSource } from './thirdPartyCalls';
 
 export const LanguageDetector = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [detectedLanguages, setdetectedLanguages] = useState(null);
   const [error, setError] = useState(null);
+
+  let formBoxClassName = isSubmitted ? "splitted-left" : "full"
 
   const hardcodedResult = [
     {
@@ -28,20 +31,21 @@ export const LanguageDetector = () => {
   ]
 
   const submitForm = (text) => {
+    setIsSubmitted(true)
     setIsLoading(true);
 
-    detectTextLanguage(text)
-    .then(
-      data => {
-        data.success ? 
-        setdetectedLanguages(data.results) :
-        setError(data.error)
-      },
-      error => {
-        setError(error)
-      }
-    );
-    // setdetectedLanguages(hardcodedResult)
+    // detectTextLanguage(text)
+    // .then(
+    //   data => {
+    //     data.success ? 
+    //     setdetectedLanguages(data.results) :
+    //     setError(data.error)
+    //   },
+    //   error => {
+    //     setError(error)
+    //   }
+    // );
+    setdetectedLanguages(hardcodedResult)
     setIsLoading(false)
   }
 
@@ -50,11 +54,15 @@ export const LanguageDetector = () => {
   }
 
   return (
-    <Box>
-      <Form submitForm={submitForm}/>
-      {isLoading && <p>Loading</p>}
-      {error && <ErrorMessage error={error} />}
-      {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}
+    <Box className="splitted">
+      <Box className={formBoxClassName}>
+        <Form submitForm={submitForm}/>
+      </Box>
+      {isSubmitted && <Box className="splitted-right">
+        {isLoading && <p>Loading</p>}
+        {error && <ErrorMessage error={error} />}
+        {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}
+      </Box>}
     </Box>
   );
 }
