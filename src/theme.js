@@ -1,6 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
-import { pink, indigo } from '@material-ui/core/colors';
-import { InsertLinkRounded } from '@material-ui/icons';
+import { pink, indigo, grey } from '@material-ui/core/colors';
 
 let theme = createMuiTheme({
   palette: {
@@ -30,9 +29,12 @@ let theme = createMuiTheme({
     h1: {
       fontSize: 20,
       fontWeight: 500,
+      marginLeft:5,
     },
     h3: {
       fontSize: 16,
+      color:grey[50],
+      padding:3,
     },
   },
 });

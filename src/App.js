@@ -14,10 +14,11 @@ export const App = () => {
         direction="column"
         justify="space-between"
         alignItems="center"
+        id="app"
       >
         <ApplicationBar />
         <LanguageDetector />
-        <Footer />
+        <Footer/>
       </Grid>
     </ThemeProvider>
   );
