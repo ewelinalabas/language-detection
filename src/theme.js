@@ -29,16 +29,17 @@ let theme = createMuiTheme({
     h1: {
       fontSize: 20,
       fontWeight: 500,
-      marginLeft:5,
+      marginLeft: 5,
     },
     h2: {
       fontSize: 18,
       fontWeight: 400,
+      marginBottom: 5,
     },
     h3: {
-      fontSize: 16,
-      color:grey[50],
-      padding:3,
+      fontSize: 14,
+      color: grey[50],
+      padding: 3,
     },
   },
 });
