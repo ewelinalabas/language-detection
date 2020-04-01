@@ -31,6 +31,10 @@ let theme = createMuiTheme({
       fontWeight: 500,
       marginLeft:5,
     },
+    h2: {
+      fontSize: 18,
+      fontWeight: 400,
+    },
     h3: {
       fontSize: 16,
       color:grey[50],

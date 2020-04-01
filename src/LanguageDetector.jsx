@@ -11,7 +11,7 @@ export const LanguageDetector = () => {
   const [detectedLanguages, setdetectedLanguages] = useState(null);
   const [error, setError] = useState(null);
 
-  let formBoxClassName = isSubmitted ? "splitted-left" : "full"
+  let formBoxClassName = isSubmitted ? "form-partial" : "form-full"
 
   const hardcodedResult = [
     {
@@ -20,6 +20,34 @@ export const LanguageDetector = () => {
     "probability": 11.447804611689142,
     "percentage": 100,
     "reliable_result": true
+    },
+    {
+    "language_code": "no",
+    "language_name": "Norwegian",
+    "probability": 10.386409572240652,
+    "percentage": 90.72839661881791,
+    "reliable_result": false
+    },
+    {
+    "language_code": "no",
+    "language_name": "Norwegian",
+    "probability": 10.386409572240652,
+    "percentage": 90.72839661881791,
+    "reliable_result": false
+    },
+    {
+    "language_code": "no",
+    "language_name": "Norwegian",
+    "probability": 10.386409572240652,
+    "percentage": 90.72839661881791,
+    "reliable_result": false
+    },
+    {
+    "language_code": "no",
+    "language_name": "Norwegian",
+    "probability": 10.386409572240652,
+    "percentage": 90.72839661881791,
+    "reliable_result": false
     },
     {
     "language_code": "no",
@@ -54,11 +82,11 @@ export const LanguageDetector = () => {
   }
 
   return (
-    <Box className="splitted">
+    <Box className="detector-body">
       <Box className={formBoxClassName}>
         <Form submitForm={submitForm}/>
       </Box>
-      {isSubmitted && <Box className="splitted-right">
+      {isSubmitted && <Box className="results">
         {isLoading && <p>Loading</p>}
         {error && <ErrorMessage error={error} />}
         {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}

@@ -1,21 +1,20 @@
-.splitted {
+.detector-body {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: baseline;
   justify-content: center;
 }
 
-.full {
+.form-full {
   width: 100%;
 }
 
-.splitted-left {
-  width: 40%;
-  left: 0;
+.form-partial {
+  width: 100%;
 }
 
-.splitted-right {
-  width: 60%;
-  right: 0;
+.results {
+  width: 50%;
+  align-self: center;
 }

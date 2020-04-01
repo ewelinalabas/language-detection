@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { TextField, ButtonGroup, Button } from '@material-ui/core';
+import { TextField, ButtonGroup, Button, Typography } from '@material-ui/core';
 import { RotateLeftRounded, SendRounded } from '@material-ui/icons';
 import { StyledForm } from './styledComponents/StyledForm';
-import { StyledTextField } from './styledComponents/StyledTextField';
+import { StyledTextArea } from './styledComponents/StyledTextArea';
 
 export const Form = ({ submitForm }) => {
   const LABEL_TEXT = "Type your text here...";
@@ -25,14 +25,16 @@ export const Form = ({ submitForm }) => {
 
   return (
     <StyledForm>
-      <StyledTextField
-        required
-        multiline
-        type="text"
-        id="outlined-basic" 
-        label={LABEL_TEXT}
+      <Typography variant="h2">Type your text here</Typography>
+      <StyledTextArea
+        rowsMin="10"
+        // required
+        // multiline
+        // type="text"
+        // id="outlined-basic" 
+        // label={LABEL_TEXT}
         value={text}
-        variant="outlined"
+        // variant="outlined"
         onChange={handleChange}
       />
       <ButtonGroup>
