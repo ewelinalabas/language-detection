@@ -4,7 +4,7 @@ import { DetectedLanguagesItem } from './DetectedLanguagesItem';
 
 export const DetectedLanguagesBoard = ({ detectedLanguages, handleSearch }) => {
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={12} lg={8}>
       <List dense={false}>
         {detectedLanguages.map((language, index) => 
           <DetectedLanguagesItem
