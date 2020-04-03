@@ -90,7 +90,6 @@ export const LanguageDetector = () => {
             <Form submitForm={submitForm}/>
           </Box>
         </Grid>
-          <Divider orientation="vertical"/>
         <Grid item md={5}>
           {isSubmitted && <Box>
           {isLoading && <p>Loading</p>}

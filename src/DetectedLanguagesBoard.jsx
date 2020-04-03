@@ -1,11 +1,12 @@
 import React from 'react';
 import { Grid, Typography, List } from '@material-ui/core';
 import { DetectedLanguagesItem } from './DetectedLanguagesItem';
+import { StyledList } from './styledComponents/StyledList';
 
 export const DetectedLanguagesBoard = ({ detectedLanguages, handleSearch }) => {
   return (
-    <Grid container>
-      <List dense={false}>
+    <Grid container justify="center">
+      <StyledList dense={false}>
         {detectedLanguages.map((language, index) => 
           <DetectedLanguagesItem
             key={index} 
@@ -15,7 +16,7 @@ export const DetectedLanguagesBoard = ({ detectedLanguages, handleSearch }) => {
             handleSearch={handleSearch}
           />
         )}
-      </List>
+      </StyledList>
     </Grid>
   );
 }
