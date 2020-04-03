@@ -27,7 +27,8 @@ export const Form = ({ submitForm }) => {
     <StyledForm>
       <Typography variant="h2">Type your text here</Typography>
       <StyledTextArea
-        rowsMin="10"
+        rowsMin="30"
+        rowsMax="30"
         value={text}
         onChange={handleChange}
       />

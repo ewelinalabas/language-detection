@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Grid, Divider } from '@material-ui/core';
 import { Form } from './Form';
 import { DetectedLanguagesBoard } from './DetectedLanguagesBoard';
 import { ErrorMessage } from './ErrorMessage';
@@ -82,15 +82,25 @@ export const LanguageDetector = () => {
   }
 
   return (
-    <Box className="detector-body">
-      <Box className={formBoxClassName}>
-        <Form submitForm={submitForm}/>
-      </Box>
-      {isSubmitted && <Box className="results">
-        {isLoading && <p>Loading</p>}
-        {error && <ErrorMessage error={error} />}
-        {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}
-      </Box>}
-    </Box>
+    <Grid
+        container
+        justify="space-around"
+        alignItems="center"
+        id="app"
+      >
+        <Grid item md={5}>
+          <Box className={formBoxClassName}>
+            <Form submitForm={submitForm}/>
+          </Box>
+        </Grid>
+          <Divider orientation="vertical"/>
+        <Grid item md={5}>
+          {isSubmitted && <Box>
+          {isLoading && <p>Loading</p>}
+          {error && <ErrorMessage error={error} />}
+          {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}
+          </Box>}
+        </Grid>
+    </Grid>
   );
 }

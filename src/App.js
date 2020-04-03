@@ -9,17 +9,9 @@ import './App.css';
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Grid
-        container
-        direction="column"
-        justify="space-between"
-        alignItems="center"
-        id="app"
-      >
         <ApplicationBar />
         <LanguageDetector />
         <Footer/>
-      </Grid>
     </ThemeProvider>
   );
 }

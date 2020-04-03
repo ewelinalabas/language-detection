@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import { AppBar } from '@material-ui/core';
 
 export const StyledApplicationBar = styled(AppBar)({
-  position: "sticky",
+  position: "sticky !important",
   alignSelf: "flex-start",
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "row !important",
   justifyItems: "baseline",
-  padding: "1.5rem",
-  marginBottom: "1rem",
+  padding: "1rem",
 })
