@@ -11,8 +11,6 @@ export const LanguageDetector = () => {
   const [detectedLanguages, setdetectedLanguages] = useState(null);
   const [error, setError] = useState(null);
 
-  let formBoxClassName = isSubmitted ? "form-partial" : "form-full"
-
   const hardcodedResult = [
     {
     "language_code": "nl",
@@ -84,12 +82,11 @@ export const LanguageDetector = () => {
   return (
     <Grid
         container
-        justify="space-around"
+        justify="space-evenly"
         alignItems="center"
-        id="app"
       >
         <Grid item md={5}>
-          <Box className={formBoxClassName}>
+          <Box>
             <Form submitForm={submitForm}/>
           </Box>
         </Grid>

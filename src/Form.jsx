@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Container } from '@material-ui/core';
+import { Typography, Container, Box, Grid } from '@material-ui/core';
 import { RotateLeftRounded, SendRounded } from '@material-ui/icons';
 import { StyledForm } from './styledComponents/StyledForm';
 import { StyledTextArea } from './styledComponents/StyledTextArea';
@@ -32,7 +32,11 @@ export const Form = ({ submitForm }) => {
         value={text}
         onChange={handleChange}
       />
-      <Container>
+      <Grid
+        container
+        justify="space-evenly"
+        alignItems="center"
+      >
         <StyledButton
           variant="contained"
           color="secondary"
@@ -50,7 +54,7 @@ export const Form = ({ submitForm }) => {
         >
           Detect language
         </StyledButton>
-      </Container>
+      </Grid>
     </StyledForm>
   );
 }
