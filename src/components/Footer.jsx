@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Link } from '@material-ui/core';
-import { StyledFooter } from './styledComponents/StyledFooter';
+import { StyledFooter } from '../styledComponents/StyledFooter';
 
 export const Footer = () => {
   return (

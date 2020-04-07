@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Typography, Container, Box, Grid } from '@material-ui/core';
 import { RotateLeftRounded, SendRounded } from '@material-ui/icons';
-import { StyledForm } from './styledComponents/StyledForm';
-import { StyledTextArea } from './styledComponents/StyledTextArea';
-import { StyledButton } from './styledComponents/StyledButton';
+import { StyledForm } from '../styledComponents/StyledForm';
+import { StyledTextArea } from '../styledComponents/StyledTextArea';
+import { StyledButton } from '../styledComponents/StyledButton';
 
 export const Form = ({ submitForm }) => {
   const INITIAL_TEXT = "";

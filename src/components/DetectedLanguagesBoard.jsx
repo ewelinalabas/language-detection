@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid, Typography, List } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { DetectedLanguagesItem } from './DetectedLanguagesItem';
-import { StyledList } from './styledComponents/StyledList';
+import { StyledList } from '../styledComponents/StyledList';
 
 export const DetectedLanguagesBoard = ({ detectedLanguages, handleSearch }) => {
   return (

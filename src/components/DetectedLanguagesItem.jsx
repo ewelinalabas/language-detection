@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListItem, ListItemText, ListItemAvatar, Avatar, ListItemSecondaryAction, IconButton } from '@material-ui/core';
 import { SearchRounded, SchoolRounded } from '@material-ui/icons';
-import { THIRD_PARTY } from './constants';
+import { THIRD_PARTY } from '../constants';
 
 export const DetectedLanguagesItem = ({ code, name, percentageMatch, handleSearch }) => {
   const handleClick = (event, source) => {
@@ -21,10 +21,18 @@ export const DetectedLanguagesItem = ({ code, name, percentageMatch, handleSearc
         secondary={"Match: " + Math.round(percentageMatch) + "%"}
       />
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label={THIRD_PARTY.wikipedia} onClick={(event) => handleClick(event, THIRD_PARTY.wikipedia)}>
+        <IconButton 
+          edge="end" 
+          aria-label={THIRD_PARTY.wikipedia} 
+          onClick={(event) => handleClick(event, THIRD_PARTY.wikipedia)}
+        >
           <SearchRounded />
         </IconButton>
-        <IconButton edge="end" aria-label={THIRD_PARTY.google} onClick={(event) => handleClick(event, THIRD_PARTY.google)}>
+        <IconButton 
+          edge="end" 
+          aria-label={THIRD_PARTY.google} 
+          onClick={(event) => handleClick(event, THIRD_PARTY.google)}
+          >
           <SchoolRounded />
         </IconButton>
       </ListItemSecondaryAction>

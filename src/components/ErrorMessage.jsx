@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { ErrorRounded } from '@material-ui/icons';
-import { NETWORK_ERROR, ERROR_DESCRIPTION } from './constants';
-import { StyledErrorMessage } from './styledComponents/StyledErrorMessage';
+import { NETWORK_ERROR, ERROR_DESCRIPTION } from '../constants';
+import { StyledErrorMessage } from '../styledComponents/StyledErrorMessage';
 
 export const ErrorMessage = ({ error }) => {
   const formatText = (text) => {

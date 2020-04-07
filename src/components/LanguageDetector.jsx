@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Grid, Divider } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import { Form } from './Form';
 import { DetectedLanguagesBoard } from './DetectedLanguagesBoard';
 import { ErrorMessage } from './ErrorMessage';
-import { detectTextLanguage, openSource } from './thirdPartyCalls';
+import { LoadingMessage } from './LoadingMessage';
+import { detectTextLanguage, openSource } from '../thirdPartyCalls';
 
 export const LanguageDetector = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -57,6 +58,7 @@ export const LanguageDetector = () => {
   ]
 
   const submitForm = (text) => {
+    setError(null)
     setIsSubmitted(true)
     setIsLoading(true);
 
@@ -66,13 +68,14 @@ export const LanguageDetector = () => {
         data.success ? 
         setDetectedLanguages(data.results) :
         setError(data.error)
+        setIsLoading(false)
       },
       error => {
         setError(error)
+        setIsLoading(false)
       }
     );
     // setDetectedLanguages(hardcodedResult)
-    setIsLoading(false)
   }
 
   const handleSearch = (languageName, source) => {
@@ -92,9 +95,14 @@ export const LanguageDetector = () => {
         </Grid>
         <Grid item md={5}>
           {isSubmitted && <Box>
-          {isLoading && <p>Loading</p>}
+          {isLoading && <LoadingMessage />}
           {error && <ErrorMessage error={error} />}
-          {detectedLanguages && <DetectedLanguagesBoard detectedLanguages={detectedLanguages} handleSearch={handleSearch} />}
+          {detectedLanguages && 
+            <DetectedLanguagesBoard 
+              detectedLanguages={detectedLanguages} 
+              handleSearch={handleSearch} 
+            />
+          }
           </Box>}
         </Grid>
     </Grid>
