@@ -8,7 +8,7 @@ import { detectTextLanguage, openSource } from './thirdPartyCalls';
 export const LanguageDetector = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
-  const [detectedLanguages, setdetectedLanguages] = useState(null);
+  const [detectedLanguages, setDetectedLanguages] = useState(null);
   const [error, setError] = useState(null);
 
   const hardcodedResult = [
@@ -60,18 +60,18 @@ export const LanguageDetector = () => {
     setIsSubmitted(true)
     setIsLoading(true);
 
-    // detectTextLanguage(text)
-    // .then(
-    //   data => {
-    //     data.success ? 
-    //     setdetectedLanguages(data.results) :
-    //     setError(data.error)
-    //   },
-    //   error => {
-    //     setError(error)
-    //   }
-    // );
-    setdetectedLanguages(hardcodedResult)
+    detectTextLanguage(text)
+    .then(
+      data => {
+        data.success ? 
+        setDetectedLanguages(data.results) :
+        setError(data.error)
+      },
+      error => {
+        setError(error)
+      }
+    );
+    // setDetectedLanguages(hardcodedResult)
     setIsLoading(false)
   }
 
