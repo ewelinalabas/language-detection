@@ -6,19 +6,22 @@ import { StyledErrorMessage } from '../styledComponents/StyledErrorMessage';
 
 export const ErrorMessage = ({ error }) => {
   const formatText = (text) => {
-    return text ?
-      (text.charAt(0).toUpperCase() + text.slice(1))
+    return (text.charAt(0).toUpperCase() + text.slice(1))
       .replace(/_/g, " ") //remove underscores
-      .replace(/\[.*/, "") : //end text after "."
-      ""
+      .replace(/\[.*/, "") //end text after "."
   }
 
-  const errorHeader = error.message || formatText(error.type)
-  let errorDescription = formatText(error.info)
+  let errorHeader
+  let errorDescription 
   if(error.message === NETWORK_ERROR) {
+    errorHeader = error.message
     errorDescription = ERROR_DESCRIPTION.network
   } else if(error.message) {
+    errorHeader = error.message
     errorDescription = ERROR_DESCRIPTION.other
+  } else {
+    errorHeader = formatText(error.type)
+    errorDescription = formatText(error.info)
   }
 
   return (

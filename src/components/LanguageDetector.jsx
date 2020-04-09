@@ -65,9 +65,7 @@ export const LanguageDetector = () => {
     detectTextLanguage(text)
     .then(
       data => {
-        data.success ? 
-        setDetectedLanguages(data.results) :
-        setError(data.error)
+        data.success ? setDetectedLanguages(data.results) : setError(data.error)
         setIsLoading(false)
       },
       error => {
